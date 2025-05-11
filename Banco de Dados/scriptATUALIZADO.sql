@@ -22,3 +22,4 @@ primary key (id, fkAula, fkUsuario),
 foreign key (fkUsuario) references usuario(idusuario),
 foreign key (fkAula) references aula(idAula));
 
+select * from usuario;
