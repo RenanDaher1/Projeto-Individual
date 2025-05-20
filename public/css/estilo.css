@@ -2,6 +2,8 @@
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
+ 
+
   }
 
 .inicio{
@@ -21,14 +23,14 @@
   justify-content: space-evenly;
   top: 0;
   left: 0;
-  color: navy;
+  color: #0b117b;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
   gap: 30px;
-    color: navy;
+    color: #0b117b;
 
 }
 
@@ -37,13 +39,13 @@
   text-decoration: none;
   color: white;
   font-size: 19px;
-    color: navy;
+    color: #0b117b;
 
 }
 
 .login a{
   text-decoration: none;
-  color: navy;
+  color: #0b117b;
 }
 
 .nav-links li a::after {
@@ -51,7 +53,7 @@
   position: absolute;
   width: 0;
   height: 2px;
-  background: navy;
+  background: #0b117b;
   left: 0;
   bottom: -5px; /* afasta a linha do texto */
   transition: width 0.3s ease;
@@ -62,7 +64,7 @@
 }
 
 .texto-inicial {
-  color: navy;
+  color: #0b117b;
   display: flex;
   flex-direction: column;
   align-self: center;
@@ -104,7 +106,7 @@
 
 .button button {
   font-family: "Montserrat", sans-serif;
-  height: 60%;
+  height: 100%;
   width: 25%;
   border: none;
   border-radius: 8px;
@@ -115,7 +117,8 @@
 }
 
 .login a:hover {
-  color: navy;
+ color: #0b117b;
+;
 }
 
 .navbar.scrolled {
@@ -196,4 +199,50 @@ font-family: "Montserrat", sans-serif;
 .bloco li {
   font-size: 0.95em;
   color: #333;
+}
+
+.blocoobjetivo {
+  display: flex;
+  justify-content: center;
+}
+
+.objetivo {
+  background-color: #0b117b;
+  color: gold;
+  text-align: left;
+  border: 1px solid gold;
+  border-radius: 10px;
+  padding: 30px;
+  width: 900px;
+  transition: transform 0.3s ease;
+  padding-top: 20px;
+  height: 50vh;
+  display:flex;
+  flex-direction: row;
+  gap: 10vw;
+
+}
+
+.textoobjetivo {
+  color: white;
+  text-align: left;
+  width: 400px;
+}
+
+.imgobjetivo {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.objetivo img {
+  height: 275px;
+  width: 275px;
+  
+}
+
+.sobreobjetivo{
+  display: flex;
+  flex-direction: column;
+  gap: 20vh;
 }
