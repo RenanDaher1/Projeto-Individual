@@ -27,7 +27,7 @@
         <li><a href="">Autor</a></li>
       </ul>
       <div class="login">
-        
+
         <a href="login.html">Entrar</a>
         <a href="">|</a>
         <a href="cadastro.html">Cadastrar</a>
@@ -38,59 +38,69 @@
       <p>Invista no que ninguém tira de você: Conhecimento</p>
       <span>"O risco vem de não saber o que você está fazendo"</span>
       <span>-Luiz Barsi Filho</span>
-      <div class="button"><button>Cadastre-se ></button></div>
+      <div class="button"><button onclick="cadastrar()">Cadastre-se ></button></div>
       <div class="seta"><img src="assets/imgs/seta.svg" alt=""></div>
     </div>
   </section>
-  <div class="header">
-    <div class="container">
-      <h1 class="titulo">Edu-Finance</h1>
-    </div>
-  </div>
-  <div class="banner">
-    <div class="container">
-      <p>Invista no que <span> ninguém </span> tira de você: <span>Conhecimento</span>.</p>
-    </div>
-  </div>
-
-  <div class="social">
-    <div class="container">
-      <div class="boxes">
-        <div class="box">
-          <h4>Sobre</h4>
-          <p>Pensamento Crítico: Aqui, você se tornará apto a entender, refletir e estudar sobre o que está acontecendo
-            no mundo.<br>Economia: Entenderá como funciona o mercado em que vivemos hoje, tanto economicamente qunato
-            politicamente.<br>Capacidade Analítica: Desenvolva a habilidade de interpretar números, dados e tendências
-            para fazer escolhas financeiras mais inteligentes.<br>Finanças Pessoais e Mercado Financeiro: Domine sua
-            vida financeira e compreenda como o mercado funciona para multiplicar suas oportunidades</p>
-        </div>
-        <div class="box">
-          <h4>Objetivo</h4>
-          <p>Este site foi criado com o propósito de tornar o conhecimento financeiro acessível a todos.<br>Aqui, você
-            encontrará conteúdos claros, práticos e organizados por níveis, do iniciante ao avançado, para ajudar você a
-            entender melhor seu dinheiro, tomar decisões conscientes e conquistar sua liberdade financeira.<br>Mais do
-            que aprender a investir, a ideia é transformar sua relação com o dinheiro e construir um futuro mais seguro
-            e independente.</p>
-        </div>
-        <div class="box">
-          <h4>Valores</h4>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, quas cupiditate asperiores provident magnam
-            vitae illum iusto fugiat atque deleniti nulla sed iure suscipit, laborum, aliquid accusantium cum dicta
-            minima.</p>
-        </div>
+  <section class="sobre">
+    <h2>Sobre</h2> 
+    <div class="cards">
+      <div class="bloco">
+        <img src="assets/imgs/pensamento_critico.jpg" alt="Logo Pensamento Crítico" />
+        <h3>Pensamento Crítico</h3>
+        <ul>
+          <li>
+            Aqui, você se tornará apto a entender, refletir e estudar sobre o que está acontecendo no mundo.
+          </li>
+        </ul>
+      </div>
+      <div class="bloco">
+        <img src="assets/imgs/financas.jpg" alt="Logo Economia" />
+        <h3>Economia</h3>
+        <ul>
+          <li>
+            Entenderá como funciona o mercado em que vivemos hoje, tanto economicamente quanto politicamente.
+          </li>
+        </ul>
+      </div>
+      <div class="bloco">
+        <img src="assets/imgs/capacidade_analitica.png" alt="Logo Capacidade Analítica" />
+        <h3>Capacidade Analítica</h3>
+        <ul>
+          <li>
+            Desenvolva a habilidade de interpretar números, dados e tendências para fazer escolhas financeiras mais
+            inteligentes.
+          </li>
+        </ul>
+      </div>
+      <div class="bloco">
+        <img src="assets/imgs/logo_FinancasPessoas.jpg" alt="Logo Finanças" />
+        <h3>Finanças Pessoais e do Mercado</h3>
+        <ul>
+          <li>
+            Domine sua vida financeira e compreenda como o mercado funciona para multiplicar suas oportunidades.
+          </li>
+        </ul>
       </div>
     </div>
-  </div>
+  </section>
+
 </body>
+
 </html>
 
 <script>
   window.addEventListener('scroll', function () {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
+      navbar.classList.add('scrolled');
     } else {
-        navbar.classList.remove('scrolled');
+      navbar.classList.remove('scrolled');
     }
-});
+  });
+
+  function cadastrar() {
+    window.location.href="cadastro.html" 
+    
+  }
 </script>

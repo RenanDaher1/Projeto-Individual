@@ -134,3 +134,66 @@
 .navbar.scrolled a {
     color: #fffff6;
 }
+
+body {
+font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.sobre {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #fff;
+  color: #000;
+}
+
+.sobre h2 {
+  font-size: 2em;
+  margin-bottom: 30px;
+  color: #0b117b;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.bloco {
+  background-color: white;
+  border: 1px solid #0b117b;
+  border-radius: 10px;
+  padding: 20px;
+  width: 250px;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.bloco:hover {
+  transform: translateY(-5px);
+}
+
+.bloco img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.bloco h3 {
+  color: #0b117b;
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}
+
+.bloco ul {
+  padding-left: 20px;
+}
+
+.bloco li {
+  font-size: 0.95em;
+  color: #333;
+}
