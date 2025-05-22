@@ -126,6 +126,33 @@ section {
 
 }
 
+.arealastbutton {
+  height: 5vh;
+  margin-top: 17vh;
+  }
+
+.button2 {
+  height: 60%;
+  text-align: center;
+  background-color: white;
+  margin-top: 4vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button2 button {
+  font-family: "Montserrat", sans-serif;
+  height: 200%;
+  width: 15%;
+  border: none;
+  border-radius: 8px;
+  font-size: large;
+  letter-spacing: 2px;
+  background-color: gold;
+  margin-bottom: 65px;
+}
+
 .login a:hover {
  color: #0b117b;
 ;
@@ -330,7 +357,7 @@ font-family: "Montserrat", sans-serif;
   height: 50vh;
   display:flex;
   flex-direction: center;
-  margin-bottom: 200px;
+  margin-bottom: 50px;
   
 }
 
