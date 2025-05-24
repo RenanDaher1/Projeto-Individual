@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background-color: white;
+  min-height: 100vh;
+}
+
+/* Header */
+.header {
+  background-color: white;
+  padding: 20px 0;
+  border-bottom: 1px solid #0b117b;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Título à esquerda */
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #0b117b;
+}
+
+.navbar-cadastro {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+
+.navbar-cadastro li a {
+  text-decoration: none;
+  color: #0b117b;
+  font-weight: bold;
+  transition: 0.5s;
+}
+
+.navbar-cadastro li a:hover {
+  color: gold;
+}
+
+/* Container da tela */
+.container2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 5vh;
+}
+
+/* Bolinhas decorativas */
+.bolinhas {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.bolinha {
+  width: 12px;
+  height: 12px;
+  background-color: #0b117b;
+  border-radius: 50%;
+}
+
+/* Card de cadastro */
+.card-cadastro {
+  background-color: white;
+  border: 1px solid #0b117b;
+  border-radius: 10px;
+  padding: 60px;
+  box-shadow: 0 0 10px rgba(11, 17, 123, 1);
+  width: 100%;
+  max-width: 650px;
+}
+
+.card-cadastro h2 {
+  color: #0b117b;
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 40px;
+}
+
+/* Formulário */
+.formulario .campo {
+  margin-bottom: 15px;
+}
+
+.formulario .campo span {
+  display: block;
+  margin-bottom: 10px;
+  color: #0b117b;
+}
+
+.formulario .campo input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #0b117b;
+  border-radius: 5px;
+}
+
+/* Botão */
+.botao {
+  width: 100%;
+  background-color: #0b117b;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.botao:hover {
+  background-color: gold;
+  color: black;
+}
+
+/* Alerta de erro */
+.alerta_erro {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+
+}
+
+.titulo {
+  color: #0b117b;
+  font-size: 24px;
+}

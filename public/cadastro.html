@@ -10,30 +10,28 @@
 
   <script src="./js/sessao.js"></script>
 
-  <link rel="stylesheet" href="./css/estilo.css" />
+  <link rel="stylesheet" href="./css/cadastro.css" />
   <link rel="icon" href="./assets/icon/favicon2.ico" />
   <link rel="preconnect" href="https://fonts.gstatic.com" />
 </head>
 
 <body>
-  <!--header inicio-->
+
   <div class="header">
     <div class="container">
-      <h1 class="titulo">Cadastro</h1>
-      <ul class="navbar">
-        <li>
-          <a href="index.html">Inicial</a>
-        </li>
-        <li>
-          <a href="login.html">Já tenho um cadastro</a>
-        </li>
-        <!-- <li class="agora">
-          <a href="#">Cadastro</a>
-        </li> -->
-      </ul>
+      <h1 class="titulo">Edu-Finance</h1>
+      <div class="spacebetweenbuttoncadastro">
+        <ul class="navbar-cadastro">
+          <li>
+            <a href="index.html">Inicial</a>
+          </li>
+          <li>
+            <a href="login.html">Já tenho um cadastro</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
-  <!--header fim-->
 
   <div class="login">
     <div class="alerta_erro">
@@ -41,9 +39,9 @@
         <span id="mensagem_erro"></span>
       </div>
     </div>
-    <div class="container">
+    <div class="container2">
       <div class="card card-cadastro">
-        <h2>Bem-vindo!</h2>
+        <h2>Cadastre-se!</h2>
         <div class="formulario">
           <!--
                          Para inserir mais um campo, copie uma das inputs abaixo.
@@ -83,7 +81,7 @@
 
 <script>
 
-  
+
 
   function cadastrar() {
     // aguardar();
@@ -95,7 +93,7 @@
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
-    
+
 
     // Verificando se há algum campo em branco
     if (
@@ -105,12 +103,12 @@
       senhaVar == "" ||
       confirmacaoSenhaVar == ""
     ) {
-     
-        alert("Mensagem de erro para todos os campos em branco");
 
-      
+      alert("Preencha todos os campos corretamente");
+
+
       return false;
-    } 
+    }
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
       method: "POST",
@@ -131,10 +129,10 @@
 
         if (resposta.ok) {
 
-            alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
-         
-            window.location = "login.html";
-           
+          alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
+
+          window.location = "login.html";
+
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
         }
