@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .header-login {
@@ -70,10 +70,12 @@
   border: 1px solid 0b117b;
   border-radius: 10px;
   padding: 60px;
-  box-shadow: 0 0 10px rgba(11, 17, 123, 1.0);
+  box-shadow: 0 0 10px rgb(11, 17, 123, 1.0);
   width: 100%;
   max-width: 650px;
 }
+
+
 
 .card-login h2 {
   color: #0b117b;
@@ -88,21 +90,22 @@
 
 .formulario .campo span {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   color: #0b117b;
 }
 
 .formulario .campo input {
   width: 100%;
   padding: 10px;
-  border: 1px solid #0b117b;
+  border: 2px solid #0b117b;
   border-radius: 5px;
 }
 
+
 .botao-login {
   width: 100%;
-  background-color: gold;
-  color: black;
+  background-color: #0b117b;
+  color: white;
   padding: 12px;
   border: none;
   border-radius: 5px;
@@ -112,9 +115,12 @@
 }
 
 .botao-login:hover {
-  background-color: #0b117b;
+  background-color: gold;
+  color: black;
 }
 
 .login{
   display: flex;
 }
+
+
