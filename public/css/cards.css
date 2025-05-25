@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: white;
+    border-bottom: 2px solid navy;
+    font-weight: bold;
+    font-size: 18px;
+    color: navy;
+}
+
+
+.logo {
+    font-size: 24px;
+}
+
+.conteiner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    border: 1px solid #0b117b;
+    border-radius: 10px;
+    padding: 60px;
+    box-shadow: 0 0 10px rgba(11, 17, 123, 1);
+    width: 100%;
+    max-width: 650px;
+    margin-left: 50vh;
+}
+
+.card h2 {
+    color: #0b117b;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 40px;
+}
+
+.subtitulo{
+    color: #0b117b;
+    font-size: 18px;
+}
+
+.button:hover{
+    color: gold;
+    transition: 0.3s;
+
+}
+
+.button-sair {
+    border: 2px solid #0b117b;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #0b117b;
+    transition: 0.5s;
+    margin-right: 6vh;
+}
+
+.button-sair:hover {
+    background-color: #0b117b;
+    color: white;
+}

@@ -6,11 +6,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaTech | Tempo Real</title>
+    <title>Edu-Finance | Selecione uma Opção</title>
 
 
     <link rel="stylesheet" href="./../css/dashboards.css">
-    <link rel="stylesheet" href="./../css/estilo.css" />
+    <link rel="stylesheet" href="./../css/cards.css" />
 
     <script src="../js/sessao.js"></script>
     <script src="../js/alerta.js"></script>
@@ -20,51 +20,31 @@
         rel="stylesheet">
 </head>
 
-<body onload="validarSessao(), exibirAquarios(),  atualizacaoPeriodica()">
+<body onload="validarSessao(), exibirAquarios(), atualizacaoPeriodica()">
 
-    <div class="janela">
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo">Edu-Finance</div>
+    <div class="button-sair" onclick="limparSessao()">Sair</div>
+  </div> <br><br><br>
 
-        <div class="header-left dash-header">
+  <!-- Conteúdo Central -->
+  <div class="container">
+    <div class="card">
+      <h2 class="titulo-login">Olá, <span id="b_usuario">usuário</span>!</h2><br>
+      <p class="subtitulo">Que bom ter você aqui!<br> Selecione o que desja fazer:</p><br><br>
 
-            <h1>Edu-Finance</h1>
-
-            <div class="hello">
-                <h2>Olá, <span id="b_usuario">usuário</span>!</h2>
-            </div>
-
-            <div class="btn-nav">
-                <h3>Que bom ter você aqui!<br></h3>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./dashboard.html">
-                    <h3>Progresso</h3>
-                </a>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./conteudo.html">
-                    <h3>Acesse os Módulos</h3>
-                </a>
-            </div>
-
-            <div class="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
-            </div>
-
-        </div>
-
-        <div class="cards" id="cardAquarios">
-
-        </div>
-
+      <div class="opcoes-login">
+        <a href="./dashboard.html" class="button">Acompanhar Progresso</a><br><br>
+        <a href="./conteudo.html" class="button">Acessar os Módulos</a>
+      </div>
     </div>
-
-    </div>
+  </div>
 
 </body>
 
-<script>
+
+<!-- <script>
 
     function exibirAquarios() {
         JSON.parse(sessionStorage.AQUARIOS).forEach(item => {
@@ -84,6 +64,6 @@
         });
     }
 
-</script>
+</script> -->
 
 </html>
