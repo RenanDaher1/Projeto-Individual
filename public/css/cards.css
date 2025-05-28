@@ -83,3 +83,22 @@ body {
     background-color: #0b117b;
     color: white;
 }
+
+.opcoes{
+    border: 2px solid #0b117b;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #0b117b;
+    transition: 0.5s;
+    margin-right: 6vh;
+    background-color: #ffffff;
+    transition: 0.3s;
+}
+
+.opcoes:hover{
+    background-color: gold;
+    color: rgb(0, 0, 0);
+    border: black;
+}
