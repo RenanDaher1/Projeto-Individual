@@ -71,19 +71,21 @@ body {
 }
 
 .modulo {
-  background-color: #fff;
+  background-color: white;
   border: 1px solid #0b117b;
   border-radius: 12px;
   padding: 20px;
   flex: 1;
   min-width: 300px;
   box-shadow: 0 4px 10px #0b117b;
+  
 }
 
 .modulo h2 {
   color: #0b117b;
   text-align: center;
   margin-bottom: 4vh;
+
 }
 
 .modulo button {
@@ -97,8 +99,15 @@ body {
   text-align: left;
   cursor: pointer;
   transition: background 0.3s ease;
+  
 }
 
 .modulo button:hover {
-  background-color: #d2e3fb;
+  background-color: #0b117b;
+  color: white;
+}
+
+#youtube-button{
+  text-decoration: none;
+
 }
