@@ -7,9 +7,17 @@
 
 .header-login {
   background-color: white;
-  padding: 20px 0;
-  border-bottom: 1px solid #0b117b;
+  padding: 20px ;
 }
+
+body {
+    background-color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
 
 .navbar-login {
   display: flex;
@@ -18,7 +26,7 @@
 }
 
 .container {
-  width: 90%;
+  width: 98.5%;
   margin: auto;
   display: flex;
   justify-content: space-between;
@@ -37,6 +45,14 @@
 .titulo {
   color: #0b117b;
   font-size: 24px;
+}
+
+.line {
+    background-color: #0b117b;
+    border: #0b117b 1.5px solid;
+    width: 97%;
+    align-self: center;
+    margin-top: 2px;
 }
 
 .navbarlogin {
