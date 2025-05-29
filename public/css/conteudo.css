@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: white;
+    border-bottom: 2px solid navy;
+    font-weight: bold;
+    font-size: 18px;
+    color: navy;
+}
+
+.logo {
+    font-size: 24px;
+}
+
+.button-voltar {
+    border: 2px solid #0b117b;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #0b117b;
+    transition: 0.5s;
+    margin-right: 6vh;
+}
+
+.button-voltar:hover {
+    background-color: #0b117b;
+    color: white;
+}

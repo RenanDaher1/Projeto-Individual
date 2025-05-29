@@ -5,18 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edu-Finance | Conteúdos</title>
+    <link rel="stylesheet" href="../css/conteudo.css">
+    <script src="../js/sessao.js"></script>
+
 </head>
 
 <body>
-    <h1>Edu-Finance | Módulos</h1>
-    <h3>Selecione a aula que deseja assistir.</h3>
-    <div class="btn-nav-white">
-        <a href="cards.html">
-            <h3>Voltar</h3>
-        </a>
-    </div>
-    <br>
-    
+    <div class="navbar">
+    <div class="logo">Edu-Finance</div>
+    <div class="button-voltar" onclick="voltar()">Voltar</div>
+</div>
 </body>
 
 </html>
+<script>
+   function voltar() {
+    window.location = "../dashboard/cards.html";
+
+}
+</script>

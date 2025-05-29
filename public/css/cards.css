@@ -48,7 +48,8 @@ body {
     box-shadow: 0 0 10px rgba(11, 17, 123, 1);
     width: 100%;
     max-width: 650px;
-    margin-left: 50vh;
+    margin-left: 52vh;
+    margin-top: 10vh;
 }
 
 .card h2 {
