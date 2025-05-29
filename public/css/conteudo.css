@@ -10,6 +10,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    padding: 15px;
 }
 
 
@@ -19,10 +20,17 @@ body {
     align-items: center;
     padding: 15px 30px;
     background-color: white;
-    border-bottom: 2px solid navy;
+    
     font-weight: bold;
     font-size: 18px;
-    color: navy;
+    color: #0b117b;
+}
+
+.line {
+    background-color: #0b117b;
+    border: #0b117b 1.5px solid;
+    width: 97%;
+    align-self: center;
 }
 
 .logo {
@@ -42,4 +50,55 @@ body {
 .button-voltar:hover {
     background-color: #0b117b;
     color: white;
+}
+
+
+.titulo {
+  text-align: center;
+  color: #0b117b;
+  font-size: 32px;
+  margin-top: 5vh;
+  margin-bottom: 40px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.modulo {
+  background-color: #fff;
+  border: 1px solid #0b117b;
+  border-radius: 12px;
+  padding: 20px;
+  flex: 1;
+  min-width: 300px;
+  box-shadow: 0 4px 10px #0b117b;
+}
+
+.modulo h2 {
+  color: #0b117b;
+  text-align: center;
+  margin-bottom: 4vh;
+}
+
+.modulo button {
+  display: block;
+  width: 100%;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  background-color: #e6edfa;
+  border: 1px solid #0b117b;
+  border-radius: 8px;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.modulo button:hover {
+  background-color: #d2e3fb;
 }
