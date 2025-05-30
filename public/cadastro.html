@@ -68,7 +68,7 @@
             <span>Confirmação da Senha:</span>
             <input id="confirmacao_senha_input" type="password" placeholder="******" />
           </div>
-          <button class="botao" onclick="cadastrar()">Cadastrar</button>
+          <button class="botao" onclick="validar()">Cadastrar</button>
         </div>
 
         <div id="div_erros_login"></div>
@@ -83,6 +83,108 @@
 <script>
 
 
+  function validar() {
+    var nomeVar = nome_input.value;
+    var nome_usuarioVar = nome_usuario_input.value;
+    var emailVar = email_input.value;
+    var senhaVar = senha_input.value;
+    var confirmacaoSenhaVar = confirmacao_senha_input.value;
+
+    var valida_letra_caps = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+    
+    var valida_letra_min = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    
+    var valida_numeros = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
+    
+    var valida_caracteresespeciais = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '', '=', '+', '[', ']', '{', '}', '|', ';', ':', '"', ',', '<', '.', '>', '/', '?'];
+
+     if (
+      nomeVar == "" ||
+      nome_usuarioVar == "" ||
+      emailVar == "" ||
+      senhaVar == "" ||
+      confirmacaoSenhaVar == ""
+    ) {
+
+      alert("Preencha todos os campos corretamente");
+
+      return false;
+
+    }
+    if (nomeVar.length > 45) {
+      alert("Seu nome é muito grande! Coloque apenas o primeiro e último nome.")
+
+    }
+    if (nome_usuarioVar.length > 45) {
+      alert("Nome de usuário muito grande! Comporta no máximo 45 caracteres")
+  
+    }
+    if (emailVar.length > 80) {
+      alert("Seu email é muito grande, tente inserir um email menor.")
+      
+    }
+    if (senhaVar.length < 8) {
+      alert("Sua senha deve conter pelo menos 8 caracteres.")
+
+    }
+    if (senhaVar != confirmacaoSenhaVar) {
+      alert("Senhas diferentes!")
+
+    }
+    
+
+    var valida_caps = false
+    var valida_min = false
+    var valida_esespeciais = false
+    var valida_num = false
+
+    for (let i = 0; i < senhaVar.length; i++) {
+      for (let index = 0; index < valida_letra_caps.length; index++) {
+        
+        if (valida_letra_caps[index] == senhaVar[i]) {
+          valida_caps = true
+          break;
+
+        }
+        if (valida_letra_min[index] == senhaVar[i]) {
+          valida_min = true
+          break;
+
+        }
+        if (valida_min && valida_caps) {
+          break
+        }
+      }
+      
+      
+    }
+    for (let i = 0; i < senhaVar.length; i++) {
+      for (let index = 0; index < valida_numeros.length; index++) {
+
+        if (valida_numeros[index] == senhaVar[i]) {
+          valida_num = true;
+          break;
+          
+        }
+
+    } 
+    }
+    for (let i = 0; i < senhaVar.length; i++) {
+      for (let index = 0; index < valida_caracteresespeciais.length; index++) {
+
+        if (valida_caracteresespeciais[index] == senhaVar[i]) {
+          valida_esespeciais = true;
+          break;
+        }
+        
+        
+      }
+      
+      
+    }
+
+
+  }
 
   function cadastrar() {
     // aguardar();
@@ -95,21 +197,7 @@
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
 
-
-    // Verificando se há algum campo em branco
-    if (
-      nomeVar == "" ||
-      nome_usuarioVar == "" ||
-      emailVar == "" ||
-      senhaVar == "" ||
-      confirmacaoSenhaVar == ""
-    ) {
-
-      alert("Preencha todos os campos corretamente");
-
-
-      return false;
-    }
+   
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
       method: "POST",
@@ -144,4 +232,5 @@
 
     return false;
   }
+
 </script>
