@@ -89,6 +89,8 @@
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
+    var mensagem_erro = '';
+    var erro = false;
 
     var valida_letra_caps = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
     
@@ -106,36 +108,41 @@
       confirmacaoSenhaVar == ""
     ) {
 
-      alert("Preencha todos os campos corretamente");
+      alert("Preencha todos os campos.");
 
       return false;
 
     }
     if (nomeVar.length > 45) {
-      alert("Seu nome é muito grande! Coloque apenas o primeiro e último nome.")
+      
+      mensagem_erro += 'Seu nome é muito grande! Coloque apenas o primeiro e último nome.\n'
+      erro = true;
 
     }
     if (nome_usuarioVar.length > 45) {
-      alert("Nome de usuário muito grande! Comporta no máximo 45 caracteres")
+      mensagem_erro += 'Nome de usuário muito grande! Comporta no máximo 45 caracteres.\n'
+      erro = true;
   
     }
     if (emailVar.length > 80) {
-      alert("Seu email é muito grande, tente inserir um email menor.")
+      mensagem_erro += 'Seu email é muito grande, tente inserir um email menor.\n'
+      erro = true;
       
     }
     if (senhaVar.length < 8) {
-      alert("Sua senha deve conter pelo menos 8 caracteres.")
+      mensagem_erro += 'Sua senha deve conter pelo menos 8 caracteres.\n'
+      erro = true;
 
     }
     if (senhaVar != confirmacaoSenhaVar) {
-      alert("Senhas diferentes!")
+      mensagem_erro += 'Senhas diferentes!\n'
+      erro = true;
 
     }
-    
 
     var valida_caps = false
     var valida_min = false
-    var valida_esespeciais = false
+    var valida_especiais = false
     var valida_num = false
 
     for (let i = 0; i < senhaVar.length; i++) {
@@ -154,8 +161,8 @@
         if (valida_min && valida_caps) {
           break
         }
-      }
-      
+        
+      } 
       
     }
     for (let i = 0; i < senhaVar.length; i++) {
@@ -173,17 +180,47 @@
       for (let index = 0; index < valida_caracteresespeciais.length; index++) {
 
         if (valida_caracteresespeciais[index] == senhaVar[i]) {
-          valida_esespeciais = true;
+          valida_especiais = true;
           break;
-        }
-        
-        
-      }
-      
-      
+        } 
+      }     
     }
 
+    if (valida_caps == false) {
+      mensagem_erro += 'Sua senha deve conter ao menos uma letra maiúscula.\n'
+      erro = true;
+      
+    }
+    if (valida_especiais == false) {
+      mensagem_erro +='Sua senha deve conter ao menos um caracter especial (ex: _, -, .).\n'
+      erro = true;
 
+    }
+    if (valida_min == false) {
+      mensagem_erro += 'Sua senha deve conter ao menos uma letra minúscula.\n'
+      erro = true;
+      
+    }
+    if (valida_num == false) {
+      mensagem_erro += 'Sua senha deve conter ao menos um número.\n'
+      erro = true;
+      
+    }
+    if (emailVar.includes('@') && emailVar.includes('.') && emailVar.includes('.com')) {
+      
+    } else {
+      mensagem_erro += 'Email inválido.\n'
+      erro = true;
+    }
+
+      if (erro == true) {
+        mensagem_erro += 'Preencha os campos corretamente.\n'
+        alert(mensagem_erro)
+        
+      } else {
+        cadastrar();
+      }
+  
   }
 
   function cadastrar() {

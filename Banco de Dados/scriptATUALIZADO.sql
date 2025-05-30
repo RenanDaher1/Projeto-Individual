@@ -17,7 +17,7 @@ create table usuario_aula(
 id int auto_increment not null,
 fkAula int not null,
 fkUsuario int not null,
-dtInicio_aula datetime not null,
+dtInicio_aula datetime default current_timestamp,
 primary key (id, fkAula, fkUsuario),
 foreign key (fkUsuario) references usuario(idusuario),
 foreign key (fkAula) references aula(idAula));
