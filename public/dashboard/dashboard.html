@@ -73,7 +73,7 @@
                     <div class="kpi-box">19% Concluído</div>
                 </div>
                 <div class="kpi-content">
-                    <span class="title-kpi">Progresso do Curso</span>
+                    <span class="title-kpi last-kpi">Progresso do Curso</span>
                     <div class="kpi-box">68% Concluído</div>
                 </div>
             </div>
@@ -105,7 +105,18 @@
             }]
         },
         options: {
-            // maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                },
+                title: {
+                    display: true,
+                    text: 'Seu progresso dos módulos.',
+                    font: {
+                        size: 15,
+                    },
+                }
+            },
             scales: {
                 y: {
                     beginAtZero: true,
@@ -125,7 +136,8 @@
                     }
                 }
             }
-        }
+        },
+        maintainAspectRatio: false
     });
 
 

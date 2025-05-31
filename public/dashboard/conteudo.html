@@ -21,6 +21,7 @@
   <div class="container">
     <div class="modulo">
       <h2>Módulo - 1</h2>
+
       <a id="youtube-button" href="https://www.youtube.com/channel/UCaU-sabkg4YHK8alxA3oniA" target="blank">
         <button>1- O que é educação financeira e por que ela importa?</button>
       </a>
@@ -71,4 +72,23 @@
     window.location = "../dashboard/cards.html";
 
 }
+const  Modulo1_Aula1 = document.getElementById("youtube-button").addEventListener("click",() => {
+
+  fetch("/usuarios/verifica/${}", {
+    method: "GET",
+    headers: {
+      "Content-type": "application/json"
+    }
+  })
+  .then (data => {
+    return data.json()
+  })
+  .then (data=> {
+    console.log("Dado Extraído")                                                                                
+  })                                                                                                           
+.catch(error=> {
+  console.log("Erro no catch", error)
+})
+})
+                                                                                                                                                                                                                                                                                                  
 </script>
