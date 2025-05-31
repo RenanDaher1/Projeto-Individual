@@ -35,7 +35,8 @@
             <h1>Edu-Finance | Progresso do Usuário</h1>
 
             <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!<br>Este é o seu progresso em relação as aulas disponibilizadas.</h3>
+                <h3>Olá, <span id="b_usuario">usuário</span>!<br>Este é o seu progresso em relação as aulas
+                    disponibilizadas.</h3>
             </div>
 
             <div class="btn-nav-white">
@@ -57,22 +58,77 @@
         </div>
 
         <div class="dash">
-            <div id="alerta">
+            <h2 class="title-info-sensor">Meu Progresso</h2>
+            <div class="kpis-box">
+                <div class="kpi-content">
+                    <span class="title-kpi">Progresso do Módulo 2</span>
+                    <div class="kpi-box ativo">48% Concluído</div>
+                </div>
+                <div class="kpi-content">
+                    <span class="title-kpi">Progresso do Módulo 2</span>
+                    <div class="kpi-box">90% Concluído</div>
+                </div>
+                <div class="kpi-content">
+                    <span class="title-kpi">Progresso do Módulo 3</span>
+                    <div class="kpi-box">19% Concluído</div>
+                </div>
+                <div class="kpi-content">
+                    <span class="title-kpi">Progresso do Curso</span>
+                    <div class="kpi-box">68% Concluído</div>
+                </div>
             </div>
-
-            <div class="btns-dash" id="btnAquario">
-            </div>
-            <div id="graficos">
+            <div id="grafico">
+                <span class="titlodash"></span><canvas id="myChart"></canvas>
             </div>
         </div>
     </div>
 
 
+
 </body>
 
 </html>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
+
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Módulo 1', 'Módulo 2', 'Módulo 3',],
+            datasets: [{
+                label: 'Progresso das Aulas',
+                data: [5, 8, 2,],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            // maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    min: 0,
+                    max: 9,
+                    ticks: {
+                        callback: function (value) {
+                            if (value <= 1) {
+                                return value + '- Aula';
+
+                            } else {
+                                return value + '- Aulas';
+                            }
+                        },
+                        stepSize: 1
+
+                    }
+                }
+            }
+        }
+    });
+
+
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
     let proximaAtualizacao;
