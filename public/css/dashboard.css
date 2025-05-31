@@ -1,0 +1,70 @@
+body {
+  background-color: white;
+  font-family: 'Montserrat', sans-serif;
+  padding: 15px;
+  margin: 0;
+}
+
+.janela {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Área lateral esquerda */
+.header-left {
+  width: 25%;
+  background-color: white;
+  border-right: 2px solid #0b117b;
+  padding: 40px 20px;
+  box-shadow: 2px 0 10px rgba(11, 17, 123, 0.1);
+}
+
+.header-left h1 {
+  color: #0b117b;
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.hello h3 {
+  color: #0b117b;
+  margin-bottom: 40px;
+  font-size: 18px;
+}
+
+.btn-nav-white, .btn-logout {
+  background-color: white;
+  border: 2px solid #0b117b;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 8px;
+  text-align: center;
+  transition: 0.5s;
+  cursor: pointer;
+  width: 33vh;
+}
+
+.btn-nav-white a, .btn-logout h3 {
+  text-decoration: none;
+  color: #0b117b;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.btn-nav-white:hover, .btn-logout:hover {
+  background-color: gold;
+}
+
+.btn-nav-white:hover a, .btn-logout:hover h3 {
+  color: black;
+}
+
+.dash {
+  width: 75%;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
