@@ -58,6 +58,9 @@ select * from usuario;
 select * from aula;
 select * from usuario_aula;
 
+select count(idAula) as 'Quantidade_de_Aulas' from usuario_aula join aula on fkAula = idAula where fkUsuario = 1 group by modulo;
+
+
 select count(idAula) from usuario_aula left join aula on fkAula = idAula where fkUsuario = 1 and modulo = 1;
 select count(idAula) from usuario_aula left join aula on fkAula = idAula where fkUsuario = 1 and modulo = 2;
 select count(idAula) from usuario_aula left join aula on fkAula = idAula where fkUsuario = 1 and modulo = 3;

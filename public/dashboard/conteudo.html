@@ -79,80 +79,80 @@
 
   }
   const Modulo1_Aula1 = document.getElementById("youtube-button").addEventListener("click", () => {
-    
-    idAula = 1; 
+
+    idAula = 1;
     validar_ifexists()
-   
-    
-  })   
-    for (let index = 2; index <= 27; index++) {
-      const button = document.getElementById(`youtube-button${index}`);
-      if (button) {
-        button.addEventListener("click", () => {
-          alert("aula " + index + " concluída");
-          idAula = index;
-          validar_ifexists();
-        });
-      } else {
-        console.warn(`Botão youtube-button${index} não encontrado na página.`);
-      }
+
+
+  })
+  for (let index = 2; index <= 27; index++) {
+    const button = document.getElementById(`youtube-button${index}`);
+    if (button) {
+      button.addEventListener("click", () => {
+        alert("aula " + index + " concluída");
+        idAula = index;
+        validar_ifexists();
+      });
+    } else {
+      console.warn(`Botão youtube-button${index} não encontrado na página.`);
     }
- 
-  
+  }
+
+
   function validar_ifexists() {
-    
+
     console.log(ID_USUARIO)
-    
+
     fetch(`/usuarios/verifica_aula/${ID_USUARIO}/${idAula}`, {
       method: "GET",
       headers: {
         "Content-type": "application/json"
       }
     })
-    .then(data => {
-      return data.json()
-    })
-    .then(data => {
-      console.log("Dado Extraído")
-      console.log(data)
-      valida_aula = data;
-      inserir_button()
-    })
-    .catch(error => {
-      console.log("Erro no catch", error)
-    })
-    
+      .then(data => {
+        return data.json()
+      })
+      .then(data => {
+        console.log("Dado Extraído")
+        console.log(data)
+        valida_aula = data;
+        inserir_button()
+      })
+      .catch(error => {
+        console.log("Erro no catch", error)
+      })
+
   }
-  
+
   function inserir_button() {
-    
+
     if (valida_aula.length == 0) {
-      
+
       fetch("/usuarios/insere_aula", {
         method: "POST",
         headers: {
-          "Content-type":"application/json"
+          "Content-type": "application/json"
         },
         body: JSON.stringify({
           ID_USUARIO: ID_USUARIO,
           idAula: idAula
         })
       })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
-        
-            if (resposta.ok) {
-                
-            } else {
-                throw "Não foi possível mandar os dados para o banco";
-            }
+        .then(function (resposta) {
+          console.log("resposta: ", resposta);
+
+          if (resposta.ok) {
+
+          } else {
+            throw "Não foi possível mandar os dados para o banco";
+          }
         })
         .catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-            alert("Erro no catch");
+          console.log(`#ERRO: ${resposta}`);
+          alert("Erro no catch");
         });
     }
-    
+
   }
 
 </script>

@@ -1,3 +1,4 @@
+const { obter_dados } = require("../controllers/usuarioController");
 var database = require("../database/config")
 
 function autenticar(nome_usuario, senha) {
@@ -48,9 +49,23 @@ function insere_aula(ID_USUARIO, ID_AULA) {
     return database.executar(instrucaoSql);
 }
 
+function obter_aulasAssistidas(ID_USUARIO) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", ID_USUARIO);
+    
+    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    //  e na ordem de inserção dos dados.
+    var instrucaoSql = `
+select count(idAula) as 'Quantidade_de_Aulas' from usuario_aula join aula on fkAula = idAula where fkUsuario = '${ID_USUARIO}' group by modulo;
+
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     autenticar,
     cadastrar,
     verifica_aula,
-    insere_aula
+    insere_aula,
+    obter_aulasAssistidas
 };
