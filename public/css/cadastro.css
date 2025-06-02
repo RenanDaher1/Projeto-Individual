@@ -14,7 +14,16 @@ body {
 .header {
   background-color: white;
   padding: 20px 0;
-  border-bottom: 1px solid #0b117b;
+  margin-top: 2vh;
+  /* border-bottom: 1px solid #0b117b; */
+}
+
+.navbarline {
+    background-color: #0b117b;
+    border: #0b117b 1.5px solid;
+    width: 92%;
+    align-self: center;
+    margin-top: 2px;
 }
 
 .container {

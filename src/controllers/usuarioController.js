@@ -82,7 +82,103 @@ function cadastrar(req, res) {
     }
 }
 
+function verifica_aula(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var ID_USUARIO = req.params.ID_USUARIO;
+    var ID_AULA = req.params.idAula;
+    
+
+    // Faça as validações dos valores
+    if (ID_USUARIO == undefined) {
+        res.status(400).send("O seu ID do Usuário está indefinido!");
+    } else if (ID_AULA == undefined) {
+        res.status(400).send("O ID da Aula está indefinido!");
+    } else {
+
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.verifica_aula(ID_USUARIO, ID_AULA)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao verificar a sua identidade! Erro:",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
+function insere_aula(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var ID_USUARIO = req.body.ID_USUARIO;
+    var ID_AULA = req.body.idAula;
+
+    // Faça as validações dos valores
+    if (ID_USUARIO == undefined) {
+        res.status(400).send("O seu ID do Usuário está indefinido!");
+    } else if (ID_AULA == undefined) {
+        res.status(400).send("O ID da Aula está indefinido!");
+    } else {
+
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.insere_aula(ID_USUARIO, ID_AULA)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao verificar a sua identidade! Erro:",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
+function obter_aulasAssistidas(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var ID_USUARIO = req.params.ID_USUARIO;
+    
+    
+
+    // Faça as validações dos valores
+    if (ID_USUARIO == undefined) {
+        res.status(400).send("O seu ID do Usuário está indefinido!");
+    } else {
+
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.obter_aulasAssistidas(ID_USUARIO)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao verificar a sua identidade! Erro:",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    verifica_aula,
+    insere_aula,
+    obter_aulasAssistidas
 }

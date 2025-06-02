@@ -2,28 +2,157 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edu-Finance | Conteúdos</title>
-    <link rel="stylesheet" href="../css/conteudo.css">
-    <script src="../js/sessao.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edu-Finance | Conteúdos</title>
+  <link rel="stylesheet" href="../css/conteudo.css">
+  <link rel="icon" href="../assets/imgs/pig-piggy-bank-svgrepo-com.svg">
+  <script src="../js/sessao.js"></script>
 
 </head>
 
 <body>
-<div class="navbar">
+  <div class="navbar">
     <div class="logo">Edu-Finance</div>
     <div class="button-voltar" onclick="voltar()">Voltar</div>
-</div>
+  </div>
+  <hr class="line">
+  <h1 class="titulo">Conteúdo</h1>
+  <div class="container">
+    <div class="modulo">
+      <h2>Módulo - 1</h2>
 
+      <a id="youtube-button" href="https://www.youtube.com/channel/UCaU-sabkg4YHK8alxA3oniA" target="blank">
+        <button>1- O que é educação financeira e por que ela importa?</button>
+      </a>
+
+      <button id="youtube-button2">2- Como montar um orçamento pessoal do zero</button>
+      <button id="youtube-button3">3- Entendendo renda, despesas fixas e variáveis</button>
+      <button id="youtube-button4">4- Como sair do vermelho: lidando com dívidas</button>
+      <button id="youtube-button5">5- A importância da reserva de emergência</button>
+      <button id="youtube-button6">6- Diferença entre necessidade e desejo de consumo</button>
+      <button id="youtube-button7">7- Como usar o cartão de crédito com responsabilidade</button>
+      <button id="youtube-button8">8- Planejamento financeiro básico</button>
+      <button id="youtube-button9">9- Organização prática com planilhas e apps</button>
+    </div>
+
+    <div class="modulo">
+      <h2>Módulo - 2</h2>
+      <button id="youtube-button10">1- Juros compostos: o poder dos rendimentos</button>
+      <button id="youtube-button11">2- Inflação e seu impacto no poder de compra</button>
+      <button id="youtube-button12">3- Tipos de investimentos: renda fixa x variável</button>
+      <button id="youtube-button13">4- Tesouro Direto: como funciona e começar</button>
+      <button id="youtube-button14">5- CBD, LCI e LCA: o que são e quando usar</button>
+      <button id="youtube-button15">6- Fundos de investimento e estrutura básica</button>
+      <button id="youtube-button16">7- Como montar um planejamento com metas</button>
+      <button id="youtube-button17">8- Mentalidade de investidor</button>
+      <button id="youtube-button18">9- Erros comuns ao começar a investir</button>
+    </div>
+
+    <div class="modulo">
+      <h2>Módulo - 3</h2>
+      <button id="youtube-button19">1- Diversificação de investimentos</button>
+      <button id="youtube-button20">2- Análise fundamentalista de ações</button>
+      <button id="youtube-button21">3- Dividendos: carteira de geração de renda</button>
+      <button id="youtube-button22">4- Fundos Imobiliários: o que são e como investir</button>
+      <button id="youtube-button23">5- Previdência privada: vale a pena?</button>
+      <button id="youtube-button24">6- ETFs e investimentos no exterior</button>
+      <button id="youtube-button25">7- Criptomoedas: como iniciar com segurança</button>
+      <button id="youtube-button26">8- Gestão de patrimônio</button>
+      <button id="youtube-button27">9- Planejamento para independência financeira</button>
+    </div>
+  </div>
 
 
 </body>
+
 </html>
 
 <script>
-   function voltar() {
+
+  var valida_aula = [];
+  var idAula = 0;
+  var ID_USUARIO = sessionStorage.ID_USUARIO;
+
+  function voltar() {
     window.location = "../dashboard/cards.html";
 
-}
+  }
+  const Modulo1_Aula1 = document.getElementById("youtube-button").addEventListener("click", () => {
+
+    idAula = 1;
+    validar_ifexists()
+
+
+  })
+  for (let index = 2; index <= 27; index++) {
+    const button = document.getElementById(`youtube-button${index}`);
+    if (button) {
+      button.addEventListener("click", () => {
+        alert("aula " + index + " concluída");
+        idAula = index;
+        validar_ifexists();
+      });
+    } else {
+      console.warn(`Botão youtube-button${index} não encontrado na página.`);
+    }
+  }
+
+
+  function validar_ifexists() {
+
+    console.log(ID_USUARIO)
+
+    fetch(`/usuarios/verifica_aula/${ID_USUARIO}/${idAula}`, {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json"
+      }
+    })
+      .then(data => {
+        return data.json()
+      })
+      .then(data => {
+        console.log("Dado Extraído")
+        console.log(data)
+        valida_aula = data;
+        inserir_button()
+      })
+      .catch(error => {
+        console.log("Erro no catch", error)
+      })
+
+  }
+
+  function inserir_button() {
+
+    if (valida_aula.length == 0) {
+
+      fetch("/usuarios/insere_aula", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json"
+        },
+        body: JSON.stringify({
+          ID_USUARIO: ID_USUARIO,
+          idAula: idAula
+        })
+      })
+        .then(function (resposta) {
+          console.log("resposta: ", resposta);
+
+          if (resposta.ok) {
+
+          } else {
+            throw "Não foi possível mandar os dados para o banco";
+          }
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+          alert("Erro no catch");
+        });
+    }
+
+  }
+
 </script>

@@ -2,6 +2,7 @@
 <html lang="pt-br">
 
 <head>
+  <link rel="icon" href="../assets/imgs/pig-piggy-bank-svgrepo-com.svg">
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,15 +24,16 @@
       <div class="spacebetweenbuttoncadastro">
         <ul class="navbar-cadastro">
           <li>
-            <a href="index.html">Inicial</a>
+            <a href="login.html">Já Tenho um Cadastro</a>
           </li>
           <li>
-            <a href="login.html">Já tenho um cadastro</a>
+            <a href="index.html">Página Inicial</a>
           </li>
         </ul>
       </div>
     </div>
   </div>
+  <center><hr class="navbarline"></center>
 
   <div class="login">
     <div class="alerta_erro">
@@ -67,7 +69,7 @@
             <span>Confirmação da Senha:</span>
             <input id="confirmacao_senha_input" type="password" placeholder="******" />
           </div>
-          <button class="botao" onclick="cadastrar()">Cadastrar</button>
+          <button class="botao" onclick="validar()">Cadastrar</button>
         </div>
 
         <div id="div_erros_login"></div>
@@ -82,6 +84,145 @@
 <script>
 
 
+  function validar() {
+    var nomeVar = nome_input.value;
+    var nome_usuarioVar = nome_usuario_input.value;
+    var emailVar = email_input.value;
+    var senhaVar = senha_input.value;
+    var confirmacaoSenhaVar = confirmacao_senha_input.value;
+    var mensagem_erro = '';
+    var erro = false;
+
+    var valida_letra_caps = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+    
+    var valida_letra_min = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    
+    var valida_numeros = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
+    
+    var valida_caracteresespeciais = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '', '=', '+', '[', ']', '{', '}', '|', ';', ':', '"', ',', '<', '.', '>', '/', '?'];
+
+     if (
+      nomeVar == "" ||
+      nome_usuarioVar == "" ||
+      emailVar == "" ||
+      senhaVar == "" ||
+      confirmacaoSenhaVar == ""
+    ) {
+
+      alert("Preencha todos os campos.");
+
+      return false;
+
+    }
+    if (nomeVar.length > 45) {
+      
+      mensagem_erro += 'Seu nome é muito grande! Coloque apenas o primeiro e último nome.\n'
+      erro = true;
+
+    }
+    if (nome_usuarioVar.length > 45) {
+      mensagem_erro += 'Nome de usuário muito grande! Comporta no máximo 45 caracteres.\n'
+      erro = true;
+  
+    }
+    if (emailVar.length > 80) {
+      mensagem_erro += 'Seu email é muito grande, tente inserir um email menor.\n'
+      erro = true;
+      
+    }
+    if (senhaVar.length < 8) {
+      mensagem_erro += 'Sua senha deve conter pelo menos 8 caracteres.\n'
+      erro = true;
+
+    }
+    if (senhaVar != confirmacaoSenhaVar) {
+      mensagem_erro += 'Senhas diferentes!\n'
+      erro = true;
+
+    }
+
+    var valida_caps = false
+    var valida_min = false
+    var valida_especiais = false
+    var valida_num = false
+
+    for (let i = 0; i < senhaVar.length; i++) {
+      for (let index = 0; index < valida_letra_caps.length; index++) {
+        
+        if (valida_letra_caps[index] == senhaVar[i]) {
+          valida_caps = true
+          break;
+
+        }
+        if (valida_letra_min[index] == senhaVar[i]) {
+          valida_min = true
+          break;
+
+        }
+        if (valida_min && valida_caps) {
+          break
+        }
+        
+      } 
+      
+    }
+    for (let i = 0; i < senhaVar.length; i++) {
+      for (let index = 0; index < valida_numeros.length; index++) {
+
+        if (valida_numeros[index] == senhaVar[i]) {
+          valida_num = true;
+          break;
+          
+        }
+
+    } 
+    }
+    for (let i = 0; i < senhaVar.length; i++) {
+      for (let index = 0; index < valida_caracteresespeciais.length; index++) {
+
+        if (valida_caracteresespeciais[index] == senhaVar[i]) {
+          valida_especiais = true;
+          break;
+        } 
+      }     
+    }
+
+    if (valida_caps == false) {
+      mensagem_erro += 'Sua senha deve conter ao menos uma letra maiúscula.\n'
+      erro = true;
+      
+    }
+    if (valida_especiais == false) {
+      mensagem_erro +='Sua senha deve conter ao menos um caracter especial (ex: _, -, .).\n'
+      erro = true;
+
+    }
+    if (valida_min == false) {
+      mensagem_erro += 'Sua senha deve conter ao menos uma letra minúscula.\n'
+      erro = true;
+      
+    }
+    if (valida_num == false) {
+      mensagem_erro += 'Sua senha deve conter ao menos um número.\n'
+      erro = true;
+      
+    }
+    if (emailVar.includes('@') && emailVar.includes('.') && emailVar.includes('.com')) {
+      
+    } else {
+      mensagem_erro += 'Email inválido.\n'
+      erro = true;
+    }
+
+      if (erro == true) {
+        mensagem_erro += 'Preencha os campos corretamente.\n'
+        alert(mensagem_erro)
+        
+      } else {
+        cadastrar();
+      }
+  
+  }
 
   function cadastrar() {
     // aguardar();
@@ -94,21 +235,7 @@
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
 
-
-    // Verificando se há algum campo em branco
-    if (
-      nomeVar == "" ||
-      nome_usuarioVar == "" ||
-      emailVar == "" ||
-      senhaVar == "" ||
-      confirmacaoSenhaVar == ""
-    ) {
-
-      alert("Preencha todos os campos corretamente");
-
-
-      return false;
-    }
+   
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
       method: "POST",
@@ -143,4 +270,5 @@
 
     return false;
   }
+
 </script>
