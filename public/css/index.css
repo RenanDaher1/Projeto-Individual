@@ -31,8 +31,6 @@ section {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  top: 0;
-  left: 0;
   color: #0b117b;
 }
 
@@ -48,29 +46,35 @@ section {
   position: relative; /* Necessário para posicionar a linha */
   text-decoration: none;
   color: white;
-  font-size: 19px;
-    color: #0b117b;
+  font-size: 24px;
+  color: #0b117b;
+}
 
+.logo{
+  font-size: 24px;
 }
 
 .login a{
   text-decoration: none;
   color: #0b117b;
+  font-size: 24px;
 }
 
-.nav-links li a::after {
+.nav-links li ::after {
   content: '';
-  position: absolute;
-  width: 0;
+  position:absolute;
   height: 2px;
   background: #0b117b;
+  bottom: -5px; /* joga a linha para baixo dos links */
+  transition: width 0.4s ease;
+  width: 0;
   left: 0;
-  bottom: -5px; /* afasta a linha do texto */
-  transition: width 0.3s ease;
+  
 }
 
 .nav-links li a:hover::after {
   width: 100%;
+  
 }
 
 .texto-inicial {
@@ -359,6 +363,7 @@ font-family: "Montserrat", sans-serif;
   display:flex;
   flex-direction: center;
   margin-bottom: 50px;
+  margin-left: 7vw;
   
 }
 
