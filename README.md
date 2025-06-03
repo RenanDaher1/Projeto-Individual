@@ -35,8 +35,8 @@ Dashboard com progresso individual de aprendizado;
 Como rodar o projeto localmente?
 Clone o repositório:
 
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
+git clone (link do repositório)
+cd repositório clonado
 
 Instale as dependências:
 npm install
